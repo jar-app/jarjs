@@ -1,0 +1,14 @@
+{
+  "name": "jarjs",
+  "version": "0.0.1",
+  "description": "Frontend client for jarjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jar-app/jarjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jar-app/jarjs/issues"
+  },
+}
