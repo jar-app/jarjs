@@ -1,0 +1,15 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t jarjs:test .
+
+script:
+  # Compile ts files
+  - docker run -t jarjs:test tsc
+  # Run tslint on all .ts files (except those in node_modules, typings)
+  - docker run -t jarjs:test  find -name "*.ts" -not \( -path "./node_modules/*" -o -path "./typings/*" \) -prune
+  # Run default command
+  - docker run -t jarjs:test
