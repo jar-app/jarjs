@@ -11,4 +11,7 @@
   "bugs": {
     "url": "https://github.com/jar-app/jarjs/issues"
   },
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  }
 }
