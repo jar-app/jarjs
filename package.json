@@ -12,6 +12,7 @@
     "url": "https://github.com/jar-app/jarjs/issues"
   },
   "devDependencies": {
+    "typescript": "^1.8.10",
     "webpack": "^1.13.1"
   }
 }
