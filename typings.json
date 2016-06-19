@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "webpack": "registry:npm/webpack#1.12.9+20160418172948"
+  },
+  "globalDependencies": {
+    "node": "registry:dt/node#6.0.0+20160613154055"
   }
 }
