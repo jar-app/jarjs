@@ -1,3 +1,9 @@
+# Dev dependencies
+# ---------------
 node_modules/
-
 typings/
+
+# Compiled javascript files, maps
+# ---------------
+**/*.map
+**/*.js
