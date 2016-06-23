@@ -1,2 +1,13 @@
+# Dev dependencies
+# ---------------
 node_modules/
 typings/
+
+# Test dependencies
+# ---------------
+.travis.yml
+
+# Compiled javascript files, maps
+# ---------------
+**/*.map
+**/*.js
