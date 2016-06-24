@@ -4,12 +4,14 @@ services:
   - docker
 
 before_install:
-  - docker build -t jarjs:test .
+  # Build and start a container to do all the testing in
+  - scripts/test/build_test_container.sh
+
+env:
+  - TEST_TYPE=lint
+  - TEST_TYPE=unit
+  - TEST_TYPE=coverage
 
 script:
-  # Compile ts files
-  - docker run -t -v $PWD:/usr/src/app jarjs:test tsc
-  # Run tslint on all .ts files (except those in node_modules, typings)
-  - docker run -t -v $PWD:/usr/src/app jarjs:test find -name "*.ts" -not \( -path "./node_modules/*" -o -path "./typings/*" \) -prune | xargs tslint
-  # Run default command
-  - docker run -t -v $PWD:/usr/src/app jarjs:test
+  # Run different test types
+  - scripts/test/test.sh
