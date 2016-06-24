@@ -5,7 +5,7 @@ services:
 
 before_install:
   # Build and start a container to do all the testing in
-  - scripts/test/build_test_container.sh
+  - scripts/test/create_test_container.sh
 
 env:
   - TEST_TYPE=lint
