@@ -8,9 +8,9 @@ before_install:
   - scripts/test/create_test_container.sh
 
 env:
-  - TEST_TYPE=lint
-  - TEST_TYPE=unit
-  - TEST_TYPE=coverage
+  - TEST_TYPE=other
+  # - TEST_TYPE=unit
+  # - TEST_TYPE=coverage
 
 script:
   # Run different test types
