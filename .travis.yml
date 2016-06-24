@@ -8,8 +8,8 @@ before_install:
 
 script:
   # Compile ts files
-  - docker run -t -v $PWD:/usr/src/app jarjs:test
+  - docker run -t -v $PWD:/usr/src/app jarjs:test tsc
   # Run tslint on all .ts files (except those in node_modules, typings)
-  - docker run -t -v $PWD:/usr/src/app jarjs:test find -name "*.ts" -not \( -path "./node_modules/*" -o -path "./typings/*" \) -prune
+  - docker run -t -v $PWD:/usr/src/app jarjs:test find -name "*.ts" -not \( -path "./node_modules/*" -o -path "./typings/*" \) -prune | xargs tslint
   # Run default command
   - docker run -t -v $PWD:/usr/src/app jarjs:test
