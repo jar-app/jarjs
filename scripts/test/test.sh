@@ -17,7 +17,7 @@ then
 elif [ $TEST_TYPE = "lint" ]
 then
   # Find all files with the .ts extension and run tslint on them
-  find . -name "*.ts" -not \( -path "./node_modules/*" -o -path "./typings/*" \) -prune | xargs tslint
+  docker exec $CONTAINER_NAME find . -name "*.ts" -not \( -path "./node_modules/*" -o -path "./typings/*" \) -prune | xargs tslint
 elif [ $TEST_TYPE = "coverage" ]
 then
   echo "TODO"
