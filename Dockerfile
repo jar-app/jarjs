@@ -1,5 +1,6 @@
 FROM node:0.12
 
+# Setup jarjs install directory
 ENV APP_ROOT /usr/src/app
 RUN mkdir -p /usr/src/app
 WORKDIR $APP_ROOT
@@ -12,7 +13,8 @@ RUN npm install
 # referencing node_modules/module/bin/cmd
 ENV PATH $APP_ROOT/node_modules/.bin:$PATH
 
-# Only cause Docker cache miss on packge.json change
+# Install typescript typings
+# Only cause Docker cache miss on typings.json change
 COPY ./typings.json $APP_ROOT/typings.json
 RUN typings install
 COPY . $APP_ROOT

@@ -15,7 +15,9 @@ const config: (webpack.Configuration) = {
   },
   module: {
     loaders: [
-      { test: /\.tsx?/, loader: "ts-loader"}
+      { test: /\.tsx?/, loader: "ts-loader" }
     ]
   },
 };
+
+export default config;
