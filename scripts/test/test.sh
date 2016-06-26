@@ -20,7 +20,8 @@ then
   TS_FILES=`docker exec --tty $CONTAINER_NAME find . -name "*.ts" -not -path "./node_modules/*" -not -path "./typings/*" -prune -print0`
   echo "Typescript Files are: $TS_FILES"
   docker exec --tty $CONTAINER_NAME tslint $TS_FILES
-  docker exec --tty jarjs_test webpack --config webpack.config.js
+  # Make sure webpack compiles dependencies
+  docker exec --tty jarjs_test webpack --progress --profile --colors --display-error-details --display-cached --config webpack.config.js
 elif [ $TEST_TYPE = "coverage" ]
 then
   echo "TODO"

@@ -24,4 +24,4 @@ COPY . $APP_ROOT
 RUN tsc webpack.config.ts typings/index.d.ts
 
 # Default command to run webpack
-CMD webpack --config webpack.config.js
+CMD webpack --progress --profile --colors --display-error-details --display-cached --config webpack.config.js
