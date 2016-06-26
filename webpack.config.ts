@@ -1,3 +1,4 @@
+/// <reference path="typings/index.d.ts" />
 import * as webpack from "webpack";
 import { resolve, join } from "path";
 
@@ -11,13 +12,13 @@ const config: (webpack.Configuration) = {
     path: "bootstrap/"
   },
   resolve: {
-    extensions: [".ts", "tsx"]
+    extensions: [".ts", ".tsx"]
   },
   module: {
     loaders: [
       { test: /\.tsx?/, loader: "ts-loader" }
     ]
-  },
+  }
 };
 
 export default config;
