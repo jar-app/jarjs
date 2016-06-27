@@ -12,7 +12,7 @@ const config: (webpack.Configuration) = {
     path: "bootstrap/"
   },
   resolve: {
-    extensions: ["",".js", ".jsx", ".ts", ".tsx"]
+    extensions: [".js", ".jsx", ".ts", ".tsx"]
   },
   module: {
     loaders: [

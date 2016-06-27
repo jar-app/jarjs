@@ -19,9 +19,8 @@ COPY ./typings.json $APP_ROOT/typings.json
 RUN typings install
 COPY . $APP_ROOT
 
-
-# Compile the one-off webpack file along with the definitions required
-RUN tsc webpack.config.ts typings/index.d.ts
+# Compile the one-off webpack file along
+RUN tsc webpack.config.ts
 
 # Default command to run webpack
-CMD webpack --progress --profile --colors --display-error-details --display-cached --config webpack.config.js
+CMD scripts/run/webpack.sh
