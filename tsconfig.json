@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
     "inlineSourceMap": true,
-    "target": "es5"
-  }
+    "target": "es5",
+    "jsx": "react",
+    "noImplicitAny": true
+  },
+  "exclude": [
+    "node_modules",
+    "bower_components",
+    "jspm_packages"
+  ]
 }
