@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Route } from 'react-router';
+import * as React from "react";
+import { Route } from "react-router";
 
-var CommentBox = React.createClass({
+let CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
@@ -10,4 +10,4 @@ var CommentBox = React.createClass({
     );
   }
 });
-export const route = <Route path="/" component={CommentBox} />
+export const route = <Route path="/" component={CommentBox} />;
