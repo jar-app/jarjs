@@ -17,9 +17,7 @@ then
 elif [ $TEST_TYPE = "other" ]
 then
   # Find all files with the .ts extension and run tslint on them
-  TS_FILES=`docker exec --tty $CONTAINER_NAME ls **/*.{ts,tsx} | grep -v -e "node_modules" -e "typings"`
-  echo "Typescript Files are: $TS_FILES"
-  docker exec --tty $CONTAINER_NAME tslint $TS_FILES
+  docker exec --tty $CONTAINER_NAME find . -path '*.tsx' -o -path '*.ts' -not -path './node_modules/*' -not -path './typings/*' | xargs tslint 
   # Make sure webpack compiles dependencies
   docker exec --tty jarjs_test scripts/run/webpack.sh
 elif [ $TEST_TYPE = "coverage" ]
