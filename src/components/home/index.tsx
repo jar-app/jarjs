@@ -1,2 +1,2 @@
-import { Home } from "./lib/home"
+import { Home } from "lib/home";
 export { Home };

@@ -13,7 +13,7 @@ const config: (webpack.Configuration) = {
   },
   resolve: {
     root: [
-      resolve('./')
+      resolve("./")
     ],
     extensions: ["", ".js", ".jsx", ".ts", ".tsx"]
   },
