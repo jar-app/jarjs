@@ -12,11 +12,14 @@ const config: (webpack.Configuration) = {
     path: "bootstrap/"
   },
   resolve: {
+    root: [
+      resolve('./')
+    ],
     extensions: ["", ".js", ".jsx", ".ts", ".tsx"]
   },
   module: {
     loaders: [
-      { test: /\.tsx?/, loader: "ts-loader" }
+      { test: /\.tsx?$/, loader: "ts-loader" }
     ]
   }
 };
