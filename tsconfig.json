@@ -3,11 +3,10 @@
     "inlineSourceMap": true,
     "target": "es5",
     "jsx": "react",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "moduleResolution": "classic"
   },
   "exclude": [
-    "node_modules",
-    "bower_components",
-    "jspm_packages"
+    "node_modules"
   ]
 }
