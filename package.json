@@ -13,6 +13,17 @@
     "url": "https://github.com/jar-app/jarjs/issues"
   },
   "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.2",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-remap-istanbul": "^0.1.1",
+    "karma-sourcemap-writer": "^0.1.2",
+    "karma-webpack": "^1.7.0",
+    "phantomjs-prebuilt": "^2.1.8",
+    "react-addons-test-utils": "^15.2.1",
     "ts-loader": "^0.8.2",
     "tslint": "^3.13.0",
     "typescript": "^1.8.10",

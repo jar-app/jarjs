@@ -2,26 +2,23 @@
 # This script takes in a TEST_TYPE and runs
 # the specified test commands
 source ${BASH_SOURCE%/*}/../bash_template.sh
-
-# Start a background container
-export CONTAINER_NAME=jarjs_test
-docker run --tty --detach --name $CONTAINER_NAME jarjs:test /bin/bash
+source ${BASH_SOURCE%/*}/init_test_container.sh
 
 # Compile ALL typescript files
-docker exec --tty $CONTAINER_NAME tsc
-
+run_in_container tsc
 
 if [ $TEST_TYPE = "unit" ]
 then
-  echo "TODO"
+  run_in_container karma start --single-run
 elif [ $TEST_TYPE = "other" ]
 then
   # Find all files with the .ts extension and run tslint on them
-  TS_FILES=`docker exec --tty $CONTAINER_NAME find . -path '*.tsx' -o -path '*.ts' -not -path './node_modules/*' -not -path './typings/*'`
+  TS_FILES=`run_in_container find . -path '*.tsx' -o -path '*.ts' -not -path './node_modules/*' -not -path './typings/*'`
   echo "Typescript Files are: $TS_FILES"
-  docker exec --tty $CONTAINER_NAME tslint $TS_FILES
+  run_in_container tslint $TS_FILES
+
   # Make sure webpack compiles dependencies
-  docker exec --tty jarjs_test scripts/run/webpack.sh
+  run_in_container scripts/run/webpack.sh
 elif [ $TEST_TYPE = "coverage" ]
 then
   echo "TODO"

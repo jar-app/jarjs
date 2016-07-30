@@ -7,6 +7,7 @@ const SRC: String  = join(ROOT, "src");
 
 const config: (webpack.Configuration) = {
   entry: join(SRC, "app"),
+  devtool: 'inline-source-map',
   output: {
     filename: "bundle.js",
     path: "bootstrap/"
