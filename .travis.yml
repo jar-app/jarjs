@@ -15,11 +15,9 @@ env:
   # - TEST_TYPE=coverage
 
 before_install:
-  - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+  - if [[ -e ~/docker/image.tar ]]; then echo "Using docker cache" && docker load -i ~/docker/image.tar; fi
 
 script:
   # Run different test types
   - scripts/test/test.sh
-
-after_script:
   - mkdir -p ~/docker; docker save jarjs:test > ~/docker/image.tar
