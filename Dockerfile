@@ -22,5 +22,9 @@ COPY . $APP_ROOT
 # Compile the one-off webpack file along
 RUN tsc webpack.config.ts
 
+
+# Expose port for test runner - defined in karma config
+EXPOSE 9876
+
 # Default command to run webpack
 CMD scripts/run/webpack.sh

@@ -3,4 +3,4 @@
 source ${BASH_SOURCE%/*}/../bash_template.sh
 
 
-webpack --progress --profile --colors --display-error-details --display-cached --config webpack.config.js --bail
+webpack --progress --profile --colors --display-error-details --display-cached --config webpack.config.js
