@@ -1,53 +1,41 @@
-import webpackConfig from './webpack.config';
+import * as karma from "karma";
+import * as webpack from "webpack";
+import webpackConfig from "./webpack.config";
 
-module.exports = (config : any) => {
-  config.set({
-    basePath: '',
-    frameworks: ['jasmine'],
-    files: ['src/**/*.ts', 'src/**/*.tsx'],
+interface CustomKarmaConfig extends karma.ConfigOptions {
+  webpack: webpack.Configuration;
+}
+
+let debug = false;
+
+module.exports =  function(config: karma.Config) {
+  config.set(({
+    basePath: "",
+    frameworks: ["mocha", "chai"],
     exclude: [],
+    files: [
+      "test_index.ts",
+    ],
     preprocessors: {
-      'src/**/*_spec.ts': ['webpack'],
-      'src/**/*_spec.tsx': ['webpack'],
-      'src/**/!(*spec).ts': ['webpack', /*'coverage'*/],
-      'src/**/!(*spec).tsx': ['webpack', /*'coverage'*/],
+      "test_index.ts": ["webpack"]
     },
-    webpack: {
-      module: webpackConfig.module,
-      resolve: webpackConfig.resolve
-    },
-    reporters: ['progress', /*'coverage'*/],
-    coverageReporter: {
-        reporters: [{
-        type: 'json',
-        subdir: '.', 
-        file: 'coverage-final.json'
-      }],
-      check: {
-        global: {
-          statements: 100,
-          lines: 100,
-          functions: 100,
-          branches: 100
-        }
-      }
-    },
+    webpack: webpackConfig,
+    reporters: ["progress"],
     webpackMiddleware: {
       noInfo: true
-    },
-    remapIstanbulReporter: {
-      src: 'coverage/coverage-final.json',
-      reports: {
-        html: 'coverage'
-      },
-      timeoutNotCreated: 1000,
-      timeoutNoMoreFiles: 1000
     },
     // Dockerfile exposes this port
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    browsers: ['PhantomJS'],
-    concurrency: Infinity
-  });
+    browsers: ["PhantomJS"],
+    concurrency: Infinity,
+    plugins: [
+      "karma-mocha",
+      "karma-chai",
+      "karma-webpack",
+      "karma-phantomjs-launcher",
+      "karma-source-map-support"
+    ]
+  }) as CustomKarmaConfig);
 };

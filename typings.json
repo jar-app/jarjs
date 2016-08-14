@@ -3,11 +3,23 @@
     "webpack": "registry:npm/webpack#1.12.9+20160418172948"
   },
   "globalDependencies": {
-    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-    "node": "registry:dt/node#6.0.0+20160613154055",
     "react": "registry:dt/react#0.14.0+20160621225615",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
     "react-router": "registry:dt/react-router#2.0.0+20160621215300",
     "react-router/history": "registry:dt/react-router/history#2.0.0+20160608102730"
+  },
+  "globalDevDependencies": {
+    "karma": "registry:dt/karma#0.13.9+20160720063042",
+    "log4js": "registry:dt/log4js#0.0.0+20160608042355",
+    "mocha": "registry:dt/mocha#2.2.5+20160720003353",
+    "node": "registry:dt/node#6.0.0+20160807145350",
+    "react-addons-test-utils": "registry:dt/react-addons-test-utils#0.14.0+20160427035638",
+    "webpack-fail-plugin": "registry:dt/webpack-fail-plugin#1.0.5+20160802151614"
+  },
+  "devDependencies": {
+    "bluebird": "registry:npm/bluebird#3.4.1+20160811213708",
+    "chai": "registry:npm/chai#3.5.0+20160723033700",
+    "express": "registry:npm/express#4.14.0+20160810205701",
+    "webpack": "registry:npm/webpack#1.12.9+20160418172948"
   }
 }

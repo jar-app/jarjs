@@ -3,13 +3,9 @@ sudo: false
 services:
   - docker
 
-before_install:
-  # Build and start a container to do all the testing in
-  - scripts/test/create_test_container.sh
-
 env:
   - TEST_TYPE=other
-  # - TEST_TYPE=unit
+  - TEST_TYPE=unit
   # - TEST_TYPE=coverage
 
 script:

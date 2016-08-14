@@ -14,7 +14,9 @@ elif [ $TEST_TYPE = "other" ]
 then
   # Find all files with the .ts extension and run tslint on them
   TS_FILES=`run_in_container find . -path '*.tsx' -o -path '*.ts' -not -path './node_modules/*' -not -path './typings/*'`
-  echo "Typescript Files are: $TS_FILES"
+  echo "Typescript Files are:"
+  echo "$TS_FILES"
+  echo "Linting..."
   run_in_container tslint $TS_FILES
 
   # Make sure webpack compiles dependencies
